@@ -51,6 +51,7 @@ async function modifyPDF({
   const { width, height } = page.getSize();
 
   const textEntries = [
+    { text: full_name, x: 120, y: height - 473 },
     {
       text: username,
       x: width - 210,
@@ -58,7 +59,6 @@ async function modifyPDF({
       link: true,
       href: `https://knky.co/creator/${username}`,
     },
-    { text: full_name, x: 120, y: height - 473 },
     {
       text: username,
       x: width - 168,
