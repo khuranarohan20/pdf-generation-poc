@@ -62,15 +62,17 @@ async function modifyPDF({
     {
       text: username,
       x: width - 168,
-      y: 902,
+      y: 667,
       link: true,
       href: `https://knky.co/creator/${username}`,
     },
-    { text: id_type, x: 50, y: 675 },
-    { text: id_number, x: 50, y: 592 },
-    { text: state_and_country, x: 50, y: 509 },
-    { text: dob, x: 50, y: 426 },
-    { text: full_name, x: 50, y: 343 },
+    { text: id_type, x: 50, y: 440 },
+    { text: id_number, x: 50, y: 357 },
+    { text: state_and_country, x: 50, y: 274 },
+    { text: dob, x: 50, y: 191 },
+    { text: full_name, x: 50, y: 108 },
+    { text: full_name, x: 100, y: 45 },
+    { text: new Date().toLocaleDateString(), x: width - 100, y: 45 },
   ];
 
   const annotations =
