@@ -4,7 +4,8 @@ import { PDFDocument, PDFName, PDFRef, PDFString, rgb } from "pdf-lib";
 
 type PDFParams = {
   username: string;
-  full_name: string;
+  creator_full_name: string;
+  tagged_full_name: string;
   id_type: string;
   id_number: string;
   state_and_country: string;
@@ -52,7 +53,7 @@ async function modifyPDF(params: PDFParams): Promise<void> {
     const { width, height } = page.getSize();
 
     const textEntries = [
-      { text: params.full_name, x: 120, y: height - 473 },
+      { text: params.creator_full_name, x: 120, y: height - 473 },
       {
         text: params.username,
         x: width - 210,
@@ -71,8 +72,8 @@ async function modifyPDF(params: PDFParams): Promise<void> {
       { text: params.id_number, x: 50, y: 357 },
       { text: params.state_and_country, x: 50, y: 274 },
       { text: params.dob, x: 50, y: 191 },
-      { text: params.full_name, x: 50, y: 108 },
-      { text: params.full_name, x: 100, y: 45 },
+      { text: params.tagged_full_name, x: 50, y: 108 },
+      { text: params.tagged_full_name, x: 100, y: 45 },
       { text: new Date().toLocaleDateString(), x: width - 100, y: 45 },
     ];
 
@@ -106,9 +107,11 @@ async function modifyPDF(params: PDFParams): Promise<void> {
   }
 }
 
+// Example Call
 modifyPDF({
   username: "testUser",
-  full_name: "John Doe",
+  creator_full_name: "John Doe",
+  tagged_full_name: "Jane Doe",
   id_type: "Passport",
   id_number: "123456789",
   state_and_country: "California, USA",
